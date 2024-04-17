@@ -1,0 +1,21 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/lib",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "types": [],
+    "paths": {
+      "shared-lib": [
+        "./dist/shared-lib"
+      ],
+      "@shared-lib/components": ["projects/shared-lib/src/lib/components/*"],
+      "@shared-lib": ["projects/shared-lib/src/lib/*"]
+    },
+  },
+  "exclude": [
+    "**/*.spec.ts"
+  ]
+}

@@ -1,0 +1,30 @@
+<div class="header">
+    <div class="header-container">
+        <div class="calories">
+            <span>Kалории: 1522</span>
+            <span>Белки: 121</span>
+            <span>Жиры: 85</span>
+            <span>Углеводы: 245</span>
+            <img class="ms-2" src="../assets/icons/plus.svg" alt="">
+        </div>
+        <button class="timer">
+            Таймер
+        </button>
+    </div>
+</div>
+<router-outlet></router-outlet>
+<div class="footer tw-flex">
+    <span [class.selected]="selectedTab === 'workouts'" (click)="selectTab('workouts')">
+        <img src="../assets/icons/workoutsTab.svg" alt="">
+    </span>
+    <span [class.selected]="selectedTab === 'history'" (click)="selectTab('history')">
+        <img src="../assets/icons/historyTab.svg" alt="">
+    </span>
+    <span [class.selected]="selectedTab === 'receipts'" (click)="selectTab('receipts')">
+        <img src="../assets/icons/foodTab.svg" alt="">
+    </span>
+    
+    <span [class.selected]="selectedTab === 'shopping-list'" (click)="selectTab('shopping-list')">
+        <img src="../assets/icons/cartTab.svg" alt="">
+    </span>
+</div>

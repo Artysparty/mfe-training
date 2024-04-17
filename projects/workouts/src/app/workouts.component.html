@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    @for (workout of workouts; track $index) {
+      <div class="col-12 col-md-6 mt-4" (click)="selectWorkout(workout)">
+        <workouts-main-card
+          [name]="workout?.name || ''"
+          [calories]="workout?.calories || null"
+          [duration]="workout?.duration || ''"
+          [imageUrl]="workout?.imageUrl || ''"
+        />
+      </div>
+    }
+  </div>
+</div>
+
+<app-dialog
+  *ngIf="isModalOpen"
+  [workout]="selectedWorkout"
+  (closeModalEvent)="closeModal()"
+></app-dialog>
