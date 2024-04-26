@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="title">Потренируемся!</h1>
+  <main-card
+    [name]="'Силовые и кардио тренировки'"
+    [imageUrl]="'../assets/images/img1.png'"
+    (click)="navigate('workouts')"
+  ></main-card>
+
+  <h1 class="title">Проголодались?</h1>
+  <main-card
+    [name]="'Вкусная еда для здорового питания'"
+    [imageUrl]="'../assets/images/steik.png'"
+    (click)="navigate('food')"
+  ></main-card>
+</div>

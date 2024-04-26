@@ -1,24 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { WorkoutsMock } from './mocks/workouts-mock';
 
-import { DialogComponent, Workout } from '@shared-lib';
-import { MainCardComponent } from '@shared-lib';
+import { WorkoutDialogComponent, Workout, MainCardComponent } from '@shared-lib';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'workouts',
   standalone: true,
-  imports: [ MainCardComponent, DialogComponent, CommonModule ],
+  imports: [
+    MainCardComponent,
+    WorkoutDialogComponent,
+    CommonModule,
+  ],
   providers: [],
   templateUrl: './workouts.component.html',
-  styleUrl: './workouts.component.scss'
+  styleUrl: './workouts.component.scss',
 })
-export class WorkoutsComponent {
+export class WorkoutsComponent implements OnDestroy {
   workouts = WorkoutsMock;
   selectedWorkout: Workout | null = null;
 
   public isModalOpen = false;
+
+  private readonly _destroy$ = new Subject<void>();
+
+  constructor() {}
+
+  ngOnDestroy(): void {
+    this._destroy$.next();
+    this._destroy$.complete();
+  }
 
   closeModal() {
     this.isModalOpen = false;

@@ -1,0 +1,21 @@
+<div
+  class="card"
+  [ngClass]="bottomName ? 'bottomName' : ''"
+  [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }"
+>
+  <div class="card-info">
+    <div class="card-calories" *ngIf="calories">
+      <img src="../assets/icons/fire.svg" style="font-weight: 100;"/>
+      <span>{{ calories }}</span>
+    </div>
+
+    <div class="card-duration" *ngIf="duration">
+      <img src="../assets/icons/timer.svg" style="font-weight: 100;"/>
+      <span>{{ duration }}</span>
+    </div>
+  </div>
+
+  <div class="card-title">
+    {{ name }}
+  </div>
+</div>

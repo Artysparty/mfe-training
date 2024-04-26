@@ -16,20 +16,7 @@
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
-					"options": {
-						"styles": [
-							"node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
-							"node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
-							"projects/workouts/src/custom-theme.scss"
-						],
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "node_modules/@taiga-ui/icons/src",
-								"output": "assets/taiga-ui/icons"
-							}
-						]
-					},
+					"options": {},
 					"configurations": {
 						"production": {
 							"target": "workouts:esbuild:production"
@@ -258,15 +245,38 @@
 				}
 			}
 		},
-		"history": {
+		"shared-lib": {
+			"projectType": "library",
+			"root": "libs/shared-lib",
+			"sourceRoot": "libs/shared-lib/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "libs/shared-lib/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "libs/shared-lib/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "libs/shared-lib/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				}
+			}
+		},
+		"food": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
 					"style": "scss"
 				}
 			},
-			"root": "projects/history",
-			"sourceRoot": "projects/history/src",
+			"root": "projects/food",
+			"sourceRoot": "projects/food/src",
 			"prefix": "app",
 			"architect": {
 				"build": {
@@ -274,10 +284,10 @@
 					"options": {},
 					"configurations": {
 						"production": {
-							"target": "history:esbuild:production"
+							"target": "food:esbuild:production"
 						},
 						"development": {
-							"target": "history:esbuild:development",
+							"target": "food:esbuild:development",
 							"dev": true
 						}
 					},
@@ -286,7 +296,7 @@
 				"serve": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "history:serve-original:development",
+						"target": "food:serve-original:development",
 						"rebuildDelay": 0,
 						"dev": true,
 						"port": 0
@@ -295,7 +305,7 @@
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"buildTarget": "history:build"
+						"buildTarget": "food:build"
 					}
 				},
 				"test": {
@@ -305,14 +315,14 @@
 							"zone.js",
 							"zone.js/testing"
 						],
-						"tsConfig": "projects/history/tsconfig.spec.json",
+						"tsConfig": "projects/food/tsconfig.spec.json",
 						"inlineStyleLanguage": "scss",
 						"assets": [
-							"projects/history/src/favicon.ico",
-							"projects/history/src/assets"
+							"projects/food/src/favicon.ico",
+							"projects/food/src/assets"
 						],
 						"styles": [
-							"projects/history/src/styles.scss"
+							"projects/food/src/styles.scss"
 						],
 						"scripts": []
 					}
@@ -320,21 +330,21 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": "dist/history",
-						"index": "projects/history/src/index.html",
-						"browser": "projects/history/src/main.ts",
+						"outputPath": "dist/food",
+						"index": "projects/food/src/index.html",
+						"browser": "projects/food/src/main.ts",
 						"polyfills": [
 							"zone.js",
 							"es-module-shims"
 						],
-						"tsConfig": "projects/history/tsconfig.app.json",
+						"tsConfig": "projects/food/tsconfig.app.json",
 						"inlineStyleLanguage": "scss",
 						"assets": [
-							"projects/history/src/favicon.ico",
-							"projects/history/src/assets"
+							"projects/food/src/favicon.ico",
+							"projects/food/src/assets"
 						],
 						"styles": [
-							"projects/history/src/styles.scss"
+							"projects/food/src/styles.scss"
 						],
 						"scripts": []
 					},
@@ -366,10 +376,131 @@
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "history:esbuild:production"
+							"buildTarget": "food:esbuild:production"
 						},
 						"development": {
-							"buildTarget": "history:esbuild:development"
+							"buildTarget": "food:esbuild:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4203
+					}
+				}
+			}
+		},
+		"homepage": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/homepage",
+			"sourceRoot": "projects/homepage/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {},
+					"configurations": {
+						"production": {
+							"target": "homepage:esbuild:production"
+						},
+						"development": {
+							"target": "homepage:esbuild:development",
+							"dev": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "homepage:serve-original:development",
+						"rebuildDelay": 0,
+						"dev": true,
+						"port": 0
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"buildTarget": "homepage:build"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/homepage/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/homepage/src/favicon.ico",
+							"projects/homepage/src/assets"
+						],
+						"styles": [
+							"projects/homepage/src/styles.scss"
+						],
+						"scripts": []
+					}
+				},
+				"esbuild": {
+					"builder": "@angular-devkit/build-angular:application",
+					"options": {
+						"outputPath": "dist/homepage",
+						"index": "projects/homepage/src/index.html",
+						"browser": "projects/homepage/src/main.ts",
+						"polyfills": [
+							"zone.js",
+							"es-module-shims"
+						],
+						"tsConfig": "projects/homepage/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/homepage/src/favicon.ico",
+							"projects/homepage/src/assets"
+						],
+						"styles": [
+							"projects/homepage/src/styles.scss"
+						],
+						"scripts": []
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve-original": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "homepage:esbuild:production"
+						},
+						"development": {
+							"buildTarget": "homepage:esbuild:development"
 						}
 					},
 					"defaultConfiguration": "development",
@@ -378,29 +509,6 @@
 					}
 				}
 			}
-    },
-    "shared-lib": {
-      "projectType": "library",
-      "root": "projects/shared-lib",
-      "sourceRoot": "projects/shared-lib/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/shared-lib/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/shared-lib/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/shared-lib/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        }
-      }
-    }
+		}
 	}
 }

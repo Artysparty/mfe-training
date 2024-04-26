@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    @for (food of foods; track $index) {
+      <div class="col-12 col-md-6 mt-4" (click)="selectFood(food)">
+        <main-card
+          [name]="food?.name || ''"
+          [calories]="food?.kbzu?.ccal || null"
+          [imageUrl]="food?.imageUrl || ''"
+        />
+      </div>
+    }
+  </div>
+</div>
+
+<food-dialog
+  *ngIf="isModalOpen"
+  [data]="selectedFood"
+  (closeModalEvent)="closeModal()"
+></food-dialog>

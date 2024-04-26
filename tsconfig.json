@@ -17,12 +17,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "shared-lib": [
-        "./dist/shared-lib"
-      ],
-      "@shared-lib": ["projects/shared-lib/src/index.ts"],
-      "@shared-lib/components": ["projects/shared-lib/src/lib/components/*"],
-      "@shared-lib/types": ["projects/shared-lib/src/lib/types/*"],
+      "@shared-lib": ["libs/shared-lib/src/index.ts"],
     },
     "importHelpers": true,
     "target": "ES2022",
