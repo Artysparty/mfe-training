@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { MainCardComponent } from '@shared-lib';
+import { ItemCardComponent } from '@shared-lib';
 
 @Component({
-  selector: 'homepage',
+  selector: 'wr-homepage',
   standalone: true,
-  imports: [RouterOutlet, MainCardComponent],
+  imports: [RouterOutlet, ItemCardComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss'
 })

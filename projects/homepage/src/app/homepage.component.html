@@ -1,15 +1,15 @@
 <div class="container">
   <h1 class="title">Потренируемся!</h1>
-  <main-card
+  <wr-shared-item-card
     [name]="'Силовые и кардио тренировки'"
     [imageUrl]="'../assets/images/img1.png'"
-    (click)="navigate('workouts')"
-  ></main-card>
+    (onClick)="navigate('workouts')"
+  ></wr-shared-item-card>
 
   <h1 class="title">Проголодались?</h1>
-  <main-card
+  <wr-shared-item-card
     [name]="'Вкусная еда для здорового питания'"
     [imageUrl]="'../assets/images/steik.png'"
-    (click)="navigate('food')"
-  ></main-card>
+    (onClick)="navigate('food')"
+  ></wr-shared-item-card>
 </div>

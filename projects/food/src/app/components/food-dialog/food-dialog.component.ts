@@ -1,16 +1,16 @@
+import { NgFor } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Food } from '../../types';
-import { CommonModule } from '@angular/common';
+import { Food } from '../../types/food.type';
 
 @Component({
-  selector: 'food-dialog',
+  selector: 'wr-food-dialog',
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgFor],
   templateUrl: './food-dialog.component.html',
   styleUrl: './food-dialog.component.scss',
 })
 export class FoodDialogComponent {
-  @Input() data: Food | null = null;
+  @Input() data!: Food;
   @Output() closeModalEvent = new EventEmitter();
 
   closeModal() {

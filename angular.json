@@ -12,7 +12,7 @@
 			},
 			"root": "projects/workouts",
 			"sourceRoot": "projects/workouts/src",
-			"prefix": "app",
+			"prefix": "wr",
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
@@ -133,7 +133,7 @@
 			},
 			"root": "projects/shell",
 			"sourceRoot": "projects/shell/src",
-			"prefix": "app",
+			"prefix": "wr",
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
@@ -240,7 +240,7 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 4200
+						"port": 4204
 					}
 				}
 			}
@@ -277,7 +277,7 @@
 			},
 			"root": "projects/food",
 			"sourceRoot": "projects/food/src",
-			"prefix": "app",
+			"prefix": "wr",
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
@@ -398,7 +398,7 @@
 			},
 			"root": "projects/homepage",
 			"sourceRoot": "projects/homepage/src",
-			"prefix": "app",
+			"prefix": "wr",
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",

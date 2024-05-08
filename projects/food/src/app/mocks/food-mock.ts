@@ -1,24 +1,24 @@
-import { Food } from "@shared-lib";
+import { Food } from '../types/food.type';
 
 export const FoodMock: Food[] = [
   {
-    name: "Индейка в сливочном соусе",
+    name: 'Индейка в сливочном соусе',
     ingredients: [
       {
         name: 'Индейка',
-        weight: 600
+        weight: 600,
       },
       {
         name: 'Сливки',
-        weight: 300
+        weight: 300,
       },
       {
         name: 'Сыр',
-        weight: 200
+        weight: 200,
       },
       {
         name: 'Чеснок',
-        weight: 30
+        weight: 30,
       },
     ],
     kbzu: {
@@ -30,37 +30,37 @@ export const FoodMock: Food[] = [
     steps: [
       {
         name: 'Шаг 1',
-        description: 'Лялляляляляллялялялялляляля'
+        description: 'Лялляляляляллялялялялляляля',
       },
       {
         name: 'Шаг 2',
-        description: 'Лялляляляляллялялялялляляля'
+        description: 'Лялляляляляллялялялялляляля',
       },
       {
         name: 'Шаг 3',
-        description: 'Лялляляляляллялялялялляляля'
+        description: 'Лялляляляляллялялялялляляля',
       },
     ],
-    imageUrl: '../assets/images/indeika.png'
+    imageUrl: '../assets/images/indeika.png',
   },
   {
-    name: "Индейка в сливочном соусе",
+    name: 'Индейка в сливочном соусе',
     ingredients: [
       {
         name: 'Индейка',
-        weight: 600
+        weight: 600,
       },
       {
         name: 'Сливки',
-        weight: 300
+        weight: 300,
       },
       {
         name: 'Сыр',
-        weight: 200
+        weight: 200,
       },
       {
         name: 'Чеснок',
-        weight: 30
+        weight: 30,
       },
     ],
     kbzu: {
@@ -72,37 +72,37 @@ export const FoodMock: Food[] = [
     steps: [
       {
         name: 'Шаг 1',
-        description: 'Лялляляляляллялялялялляляля'
+        description: 'Лялляляляляллялялялялляляля',
       },
       {
         name: 'Шаг 2',
-        description: 'Лялляляляляллялялялялляляля'
+        description: 'Лялляляляляллялялялялляляля',
       },
       {
         name: 'Шаг 3',
-        description: 'Лялляляляляллялялялялляляля'
+        description: 'Лялляляляляллялялялялляляля',
       },
     ],
-    imageUrl: '../assets/images/indeika.png'
+    imageUrl: '../assets/images/indeika.png',
   },
   {
-    name: "Стейк из говядины",
+    name: 'Стейк из говядины',
     ingredients: [
       {
         name: 'Говядина',
-        weight: 600
+        weight: 600,
       },
       {
         name: 'Чеснок',
-        weight: 20
+        weight: 20,
       },
       {
         name: 'Розмарин',
-        weight: 20
+        weight: 20,
       },
       {
         name: 'Масло сливочное',
-        weight: 100
+        weight: 100,
       },
     ],
     kbzu: {
@@ -114,29 +114,29 @@ export const FoodMock: Food[] = [
     steps: [
       {
         name: 'Шаг 1',
-        description: 'Лялляляляляллялялялялляляля'
+        description: 'Лялляляляляллялялялялляляля',
       },
       {
         name: 'Шаг 2',
-        description: 'Лялляляляляллялялялялляляля'
+        description: 'Лялляляляляллялялялялляляля',
       },
     ],
-    imageUrl: '../assets/images/steik.png'
+    imageUrl: '../assets/images/steik.png',
   },
   {
-    name: "Запеченый Дорадо",
+    name: 'Запеченый Дорадо',
     ingredients: [
       {
         name: 'Дорадо',
-        weight: 600
+        weight: 600,
       },
       {
         name: 'Приправы',
-        weight: 20
+        weight: 20,
       },
       {
         name: 'Лимон',
-        weight: 100
+        weight: 100,
       },
     ],
     kbzu: {
@@ -148,13 +148,13 @@ export const FoodMock: Food[] = [
     steps: [
       {
         name: 'Шаг 1',
-        description: 'Лялляляляляллялялялялляляля'
+        description: 'Лялляляляляллялялялялляляля',
       },
       {
         name: 'Шаг 2',
-        description: 'Лялляляляляллялялялялляляля'
+        description: 'Лялляляляляллялялялялляляля',
       },
     ],
-    imageUrl: '../assets/images/dorado.png'
+    imageUrl: '../assets/images/dorado.png',
   },
-]
+];

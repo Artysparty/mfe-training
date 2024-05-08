@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FoodDialogComponent, Food, MainCardComponent } from '@shared-lib';
+import { ItemCardComponent } from '@shared-lib';
 import { FoodMock } from './mocks/food-mock';
+import { FoodDialogComponent } from './components/food-dialog/food-dialog.component';
+import { NgFor, NgIf } from '@angular/common';
+import { Food } from './types/food.type';
 
 @Component({
-  selector: 'food',
+  selector: 'wr-food',
   standalone: true,
-  imports: [RouterOutlet, MainCardComponent, FoodDialogComponent],
+  imports: [RouterOutlet, ItemCardComponent, FoodDialogComponent, NgIf, NgFor],
   templateUrl: './food.component.html',
-  styleUrl: './food.component.scss'
+  styleUrl: './food.component.scss',
 })
 export class FoodComponent {
   foods = FoodMock;
-  selectedFood: Food | null = null;
+  selectedFood!: Food;
   isModalOpen = false;
 
   closeModal() {

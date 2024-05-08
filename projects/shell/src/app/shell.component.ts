@@ -1,21 +1,17 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { WebsocketService } from '@shared-lib';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
+@UntilDestroy()
 @Component({
-  selector: 'app-root',
+  selector: 'wr-shell',
   standalone: true,
   imports: [ RouterOutlet ],
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss'],
 })
-export class ShellComponent implements OnInit, OnDestroy {
-  title = 'shell';
-
-  private readonly _destroy$ = new Subject<void>();
-
+export class ShellComponent implements OnInit {
   constructor(private wsService: WebsocketService) {}
 
   ngOnInit(): void {
@@ -23,25 +19,16 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.emitWebSocketEventAfterDelay();
   }
 
-  ngOnDestroy(): void {
-    this._destroy$.next();
-    this._destroy$.complete();
-  }
-
   private listenToWebSocketEvents(): void {
     this.wsService
       .listen('workouts')
-      .pipe(takeUntil(this._destroy$))
-      .subscribe((data) => {
-        console.log(data);
-      });
+      .pipe(untilDestroyed(this))
+      .subscribe((data) => {});
 
     this.wsService
       .listen('connected')
-      .pipe(takeUntil(this._destroy$))
-      .subscribe((data) => {
-        console.log(data);
-      });
+      .pipe(untilDestroyed(this))
+      .subscribe((data) => {});
   }
 
   private emitWebSocketEventAfterDelay(): void {

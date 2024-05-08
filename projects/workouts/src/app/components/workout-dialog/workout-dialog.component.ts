@@ -1,16 +1,16 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Workout } from '../../types';
-import { CommonModule } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
+import { Workout } from '../../types/workouts.type';
 
 @Component({
-  selector: 'workout-dialog',
+  selector: 'wr-workout-dialog',
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgFor, NgIf],
   templateUrl: './workout-dialog.component.html',
   styleUrl: './workout-dialog.component.scss',
 })
 export class WorkoutDialogComponent {
-  @Input() workout: Workout | null = null;
+  @Input() workout!: Workout;
   @Output() closeModalEvent = new EventEmitter();
 
   get headerBtnText(): string {

@@ -1,19 +1,20 @@
 <div class="container">
   <div class="row">
     @for (food of foods; track $index) {
-      <div class="col-12 col-md-6 mt-4" (click)="selectFood(food)">
-        <main-card
-          [name]="food?.name || ''"
-          [calories]="food?.kbzu?.ccal || null"
-          [imageUrl]="food?.imageUrl || ''"
+      <div class="col-12 col-md-6 mt-4" (onClick)="selectFood(food)">
+        <wr-shared-item-card
+          [name]="food.name"
+          [calories]="food.kbzu.ccal"
+          [imageUrl]="food.imageUrl"
         />
       </div>
     }
   </div>
 </div>
 
-<food-dialog
-  *ngIf="isModalOpen"
-  [data]="selectedFood"
-  (closeModalEvent)="closeModal()"
-></food-dialog>
+@if (isModalOpen) {
+  <wr-food-dialog
+    [data]="selectedFood"
+    (closeModalEvent)="closeModal()"
+  ></wr-food-dialog>
+}

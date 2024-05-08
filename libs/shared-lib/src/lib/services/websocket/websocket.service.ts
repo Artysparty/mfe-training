@@ -19,7 +19,6 @@ export class WebsocketService {
     this.socket = io(environment.ws);
 
     this.socket.on('connect', () => {
-      console.log('Connected to WebSocket server');
       this.reconnectAttempts = 0;
     });
 

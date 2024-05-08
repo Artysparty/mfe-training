@@ -1,20 +1,24 @@
 <div class="container">
   <div class="row">
-    @for (workout of workouts; track $index) {
-      <div class="col-12 col-md-6 mt-4" (click)="selectWorkout(workout)">
-        <main-card
-          [name]="workout?.name || ''"
-          [calories]="workout?.calories || null"
-          [duration]="workout?.duration || ''"
-          [imageUrl]="workout?.imageUrl || ''"
+    @for (workout of workoutsMock; track $index) {
+      <div
+        class="col-12 col-md-6 mt-4"
+        (click)="selectWorkout(workout)"
+      >
+        <wr-shared-item-card
+          [name]="workout.name"
+          [calories]="workout.calories"
+          [duration]="workout.duration"
+          [imageUrl]="workout.imageUrl"
         />
       </div>
     }
   </div>
 </div>
 
-<workout-dialog
-  *ngIf="isModalOpen"
-  [workout]="selectedWorkout"
-  (closeModalEvent)="closeModal()"
-></workout-dialog>
+@if (isModalOpen) {
+  <wr-workout-dialog
+    [workout]="selectedWorkout"
+    (closeModalEvent)="closeModal()"
+  ></wr-workout-dialog>
+}

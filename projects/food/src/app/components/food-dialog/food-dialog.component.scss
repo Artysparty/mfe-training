@@ -92,6 +92,17 @@ $shadow-color: rgba(0, 0, 0, 0.4);
     height: 100%;
   }
 
+  &-structure {
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  &-ingredients,
+  &-kbzu {
+    display: flex;
+    flex-direction: column;
+  }
+
   &-info {
     display: flex;
     flex-direction: column;

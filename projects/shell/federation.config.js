@@ -17,6 +17,6 @@ module.exports = withNativeFederation({
     "rxjs/fetch",
     "rxjs/testing",
     "rxjs/webSocket",
-    "taiga-ui"
+    "taiga-ui",
   ],
 });
